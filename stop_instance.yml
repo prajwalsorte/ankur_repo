@@ -1,0 +1,12 @@
+---
+ - hosts: all
+   tasks:
+  - name: Gather facts
+    ec2_facts:
+
+  - name: Stop myserver instance
+    local_action:
+        module: ec2
+        region: ap-south-1
+        instance_ids: ['i-0deacf9ae08f36fa2']
+        state: stopped
